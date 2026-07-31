@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Dream Homes</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <nav>
+  <h1>🏠 Dream Homes</h1>
+
+  <input
+    type="text"
+    id="search"
+    placeholder="Search property..."
+    onkeyup="filterProperties()"
+  >
+
+  <select id="locationFilter" onchange="filterProperties()">
+    <option value="">All Locations</option>
+    <option value="Beachside">Beachside</option>
+    <option value="City Center">City Center</option>
+  </select>
+
+  <input
+    type="number"
+    id="priceFilter"
+    placeholder="Max Price"
+    onkeyup="filterProperties()"
+  >
+
+  <button onclick="showAddForm()">+ Add Property</button>
+</nav>
+
+  <div id="app"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
