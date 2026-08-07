@@ -267,4 +267,6 @@ alert("Property added to favorites.");
 }
 
 // START APPLICATION
-loadProperties();
+document.addEventListener("DOMContentLoaded", () => {
+    loadProperties();
+});
