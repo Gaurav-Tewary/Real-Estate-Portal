@@ -63,7 +63,7 @@ app.get("/api/properties", async (req, res) => {
 });
 
 // Add a property
-app.post("/properties", async (req, res) => {
+app.post("/api/properties", async (req, res) => {
   try {
     const newProperty = new Property(req.body);
     const savedProperty = await newProperty.save();
@@ -74,7 +74,7 @@ app.post("/properties", async (req, res) => {
 });
 
 // Update a property
-app.put("/properties/:id", async (req, res) => {
+app.put("/api/properties/:id", async (req, res) => {
   try {
     const updated = await Property.findByIdAndUpdate(req.params.id, req.body, { new: true });
     res.json(updated);
@@ -84,7 +84,7 @@ app.put("/properties/:id", async (req, res) => {
 });
 
 // Delete a property
-app.delete("/properties/:id", async (req, res) => {
+app.delete("/api/properties/:id", async (req, res) => {
   try {
     await Property.findByIdAndDelete(req.params.id);
     res.json({ message: "Property deleted successfully" });
