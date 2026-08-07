@@ -53,7 +53,7 @@ const Property = mongoose.model("Property", propertySchema);
 // ============================================
 
 // Get all properties
-app.get("/properties", async (req, res) => {
+app.get("/api/properties", async (req, res) => {
   try {
     const properties = await Property.find();
     res.json(properties);
