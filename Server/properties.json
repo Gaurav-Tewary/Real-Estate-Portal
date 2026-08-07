@@ -1,0 +1,32 @@
+[
+  {
+    "name": "Luxury Villa",
+    "price": "$600,000",
+    "location": "Beachside",
+    "bedrooms": "4",
+    "bathrooms": "3",
+    "area": "2500 sq ft",
+    "description": "\n\nBeautiful luxury villa near the beach.\n\n\n\n",
+    "images": [
+      "https://picsum.photos/600/400?random=1",
+      "https://picsum.photos/600/400?random=2",
+      "https://picsum.photos/600/400?random=3"
+    ],
+    "id": 1
+  },
+  {
+    "name": "Mountain villa",
+    "price": "$750000",
+    "location": "Hill  station",
+    "images": [
+      "https://picsum.photos/600/400?random=20",
+      "https://picsum.photos/600/400?random=21",
+      "https://picsum.photos/600/400?random=22"
+    ],
+    "bedrooms": "3",
+    "bathrooms": "4",
+    "area": "2500 sq ft",
+    "description": "beautiful hill view",
+    "id": 1786067094361
+  }
+]
