@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Dream Homes</title>
+  <!-- Link CSS inside the src folder -->
+  <link rel="stylesheet" href="./src/style.css">
+</head>
+<body>
+
+  <nav>
+    <h1>🏠 Dream Homes</h1>
+
+    <input
+      type="text"
+      id="search"
+      placeholder="Search property..."
+      onkeyup="filterProperties()"
+    >
+
+    <select id="locationFilter" onchange="filterProperties()">
+      <option value="">All Locations</option>
+      <option value="Beachside">Beachside</option>
+      <option value="City Center">City Center</option>
+    </select>
+
+    <input
+      type="number"
+      id="priceFilter"
+      placeholder="Max Price"
+      onkeyup="filterProperties()"
+    >
+
+    <button onclick="showAddForm()">+ Add Property</button>
+  </nav>
+
+  <div id="app"></div>
+
+  <!-- Script type="module" is required for Vite to bundle script.js properly -->
+  <script type="module" src="./script.js"></script>
+</body>
+</html>
