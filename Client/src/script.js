@@ -87,14 +87,29 @@ window.addProperty = async function() {
         description: document.getElementById("description").value
     };
 
-    await fetch(`${API_URL}/properties`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(newProperty)
-    });
+    console.log("Sending new property to backend...", newProperty);
 
-    loadProperties();
+    try {
+        const response = await fetch(`${API_URL}/properties`, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(newProperty)
+        });
+
+        const result = await response.json();
+        console.log("Server response:", result);
+
+        if (response.ok) {
+            // Instantly reload and show home
+            loadProperties();
+        } else {
+            alert("Failed to add property. Check console for details.");
+        }
+    } catch (error) {
+        console.error("Error adding property:", error);
+    }
 };
+
 
 // EDIT PROPERTY
 window.editProperty = function(index) {
