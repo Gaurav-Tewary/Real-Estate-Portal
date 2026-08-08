@@ -116,13 +116,16 @@ window.editProperty = function(index) {
 
     app.innerHTML = `
     <h2>Edit Property</h2>
-    <input id="name" value="${p.name}">
-    <input id="price" value="${p.price}">
-    <input id="location" value="${p.location}">
-    <input id="bedrooms" value="${p.bedrooms}">
-    <input id="bathrooms" value="${p.bathrooms}">
-    <input id="area" value="${p.area}">
-    <textarea id="description">${p.description}</textarea>
+    <input id="name" value="${p.name || ''}">
+    <input id="price" value="${p.price || ''}">
+    <input id="location" value="${p.location || ''}">
+    <input id="image1" placeholder="Image URL 1" value="${p.images && p.images[0] ? p.images[0] : ''}">
+    <input id="image2" placeholder="Image URL 2" value="${p.images && p.images[1] ? p.images[1] : ''}">
+    <input id="image3" placeholder="Image URL 3" value="${p.images && p.images[2] ? p.images[2] : ''}">
+    <input id="bedrooms" value="${p.bedrooms || ''}">
+    <input id="bathrooms" value="${p.bathrooms || ''}">
+    <input id="area" value="${p.area || ''}">
+    <textarea id="description">${p.description || ''}</textarea>
     <button onclick="window.updateProperty(${index})">Update</button>
     <button onclick="window.showHome()">Cancel</button>
     `;
@@ -133,11 +136,15 @@ window.updateProperty = async function(index) {
         name: document.getElementById("name").value,
         price: document.getElementById("price").value,
         location: document.getElementById("location").value,
+        images: [
+            document.getElementById("image1").value,
+            document.getElementById("image2").value,
+            document.getElementById("image3").value
+        ].filter(img => img.trim() !== ""), // Removes empty image slots
         bedrooms: document.getElementById("bedrooms").value,
         bathrooms: document.getElementById("bathrooms").value,
         area: document.getElementById("area").value,
-        description: document.getElementById("description").value,
-        images: properties[index].images
+        description: document.getElementById("description").value
     };
 
     const propertyId = properties[index]._id || properties[index].id;
