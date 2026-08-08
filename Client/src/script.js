@@ -8,7 +8,7 @@ const API_URL = "https://real-estate-portal-3ytj.onrender.com";
 // LOAD DATA FROM BACKEND
 async function loadProperties() {
     try {
-        const response = await fetch(`${API_URL}/properties`);
+        const response = await fetch(`${API_URL}/api/properties`);
         properties = await response.json();
         console.log(properties);
         showHome();
@@ -90,7 +90,7 @@ window.addProperty = async function() {
     console.log("Sending new property to backend...", newProperty);
 
     try {
-        const response = await fetch(`${API_URL}/properties`, {
+        const response = await fetch(`${API_URL}/api/properties`, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(newProperty)
@@ -109,7 +109,6 @@ window.addProperty = async function() {
         console.error("Error adding property:", error);
     }
 };
-
 
 // EDIT PROPERTY
 window.editProperty = function(index) {
@@ -143,7 +142,7 @@ window.updateProperty = async function(index) {
 
     const propertyId = properties[index]._id || properties[index].id;
 
-    await fetch(`${API_URL}/properties/${propertyId}`, {
+    await fetch(`${API_URL}/api/properties/${propertyId}`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(updatedProperty)
@@ -156,7 +155,7 @@ window.updateProperty = async function(index) {
 window.deleteProperty = async function(index) {
     const propertyId = properties[index]._id || properties[index].id;
 
-    await fetch(`${API_URL}/properties/${propertyId}`, {
+    await fetch(`${API_URL}/api/properties/${propertyId}`, {
         method: "DELETE"
     });
 
